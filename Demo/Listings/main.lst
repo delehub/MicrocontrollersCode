@@ -1,0 +1,197 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              09/13/2020 23:23:24 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: F:\KEIL5.31\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\mai
+                    -n.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          
+   3          void View(unsigned long u32ViewData);
+   4          void to_BufferData(unsigned long u32Data,unsigned char *pu8Buffer,unsigned char u8Type); 
+   5          void SendString(unsigned char *pu8String);    
+   6          
+   7          /*---C语言学习区域的开始。-----------------------------------------------*/
+   8          void main() //主函数
+   9          {
+  10   1         unsigned char a; //定义一个变量a。
+  11   1         unsigned int  b; //定义一个变量b。
+  12   1         unsigned long c; //定义一个变量c。
+  13   1         a=100;          //给变量a赋值。
+  14   1         b=10000;        //给变量b赋值。
+  15   1         c=1000000000;   //给变量c赋值。
+  16   1         View(a);   //把第1个数a发送到电脑端的串口助手软件上观察。
+  17   1         View(b);   //把第2个数b发送到电脑端的串口助手软件上观察。
+  18   1         View(c);   //把第3个数c发送到电脑端的串口助手软件上观察。
+  19   1         while(1)  
+  20   1         { 
+  21   2         }
+  22   1      }
+  23          /*---C语言学习区域的结束。-----------------------------------------------*/
+  24          void View(unsigned long u32ViewData)
+  25          {
+  26   1          static unsigned char Su8ViewBuffer[43];
+  27   1          code unsigned char Cu8_0D_0A[]={0x0d,0x0a,0x00};
+  28   1          code unsigned char Cu8Start[]={"开始..."};
+  29   1          static unsigned char Su8FirstFlag=0;
+  30   1          static unsigned int Su16FirstDelay;
+  31   1          if(0==Su8FirstFlag)
+  32   1            {
+  33   2           Su8FirstFlag=1;
+  34   2           for(Su16FirstDelay=0;Su16FirstDelay<10000;Su16FirstDelay++);
+  35   2           SendString(Cu8Start);  
+  36   2           SendString(Cu8_0D_0A);  
+  37   2           SendString(Cu8_0D_0A);  
+  38   2         }
+  39   1          to_BufferData(u32ViewData,Su8ViewBuffer,1); 
+  40   1          SendString(Su8ViewBuffer);  
+  41   1          to_BufferData(u32ViewData,Su8ViewBuffer,2); 
+  42   1          SendString(Su8ViewBuffer);  
+  43   1          to_BufferData(u32ViewData,Su8ViewBuffer,3); 
+  44   1          SendString(Su8ViewBuffer);  
+  45   1          to_BufferData(u32ViewData,Su8ViewBuffer,4); 
+  46   1          SendString(Su8ViewBuffer);  
+  47   1          SendString(Cu8_0D_0A);  
+  48   1      }
+  49          
+  50          void to_BufferData(unsigned long u32Data,unsigned char *pu8Buffer,unsigned char u8Type) 
+  51          {
+  52   1          code unsigned char Cu8Array1[]={0xB5,0xDA,0x4E,0xB8,0xF6,0xCA,0xFD,0x00};
+  53   1          code unsigned char Cu8Array2[]="十进制:";
+  54   1          code unsigned char Cu8Array3[]="十六进制:";
+C51 COMPILER V9.60.0.0   MAIN                                                              09/13/2020 23:23:24 PAGE 2   
+
+  55   1          code unsigned char Cu8Array4[]="二进制:";
+  56   1          static unsigned char Su8SerialNumber=1;
+  57   1          static unsigned int  Su16BufferCnt;
+  58   1          static unsigned int  Su16TempCnt;
+  59   1          static unsigned int  Su16TempSet;
+  60   1          static unsigned long Su32Temp1;
+  61   1          static unsigned long Su32Temp2;
+  62   1          static unsigned long Su32Temp3;
+  63   1          static unsigned char Su8ViewFlag;
+  64   1          
+  65   1          if(1==u8Type)
+  66   1          {
+  67   2              for(Su16BufferCnt=0;Su16BufferCnt<7;Su16BufferCnt++)
+  68   2                {
+  69   3                   pu8Buffer[Su16BufferCnt]=Cu8Array1[Su16BufferCnt];
+  70   3              }
+  71   2                pu8Buffer[2]=Su8SerialNumber+'0';
+  72   2                pu8Buffer[Su16BufferCnt]=0x0d;
+  73   2                pu8Buffer[Su16BufferCnt+1]=0x0a;
+  74   2                pu8Buffer[Su16BufferCnt+2]=0;
+  75   2                Su8SerialNumber++;
+  76   2                return;
+  77   2          }
+  78   1          else if(2==u8Type)
+  79   1            {
+  80   2                for(Su16BufferCnt=0;Su16BufferCnt<7;Su16BufferCnt++)
+  81   2                {
+  82   3                 pu8Buffer[Su16BufferCnt]=Cu8Array2[Su16BufferCnt];
+  83   3                }
+  84   2               Su32Temp1=1000000000;
+  85   2             Su32Temp2=10;
+  86   2             Su16TempSet=10;
+  87   2          }
+  88   1          else if(3==u8Type)
+  89   1        {
+  90   2                for(Su16BufferCnt=0;Su16BufferCnt<9;Su16BufferCnt++)
+  91   2                {
+  92   3                 pu8Buffer[Su16BufferCnt]=Cu8Array3[Su16BufferCnt];
+  93   3                }
+  94   2                Su32Temp1=0x10000000;
+  95   2              Su32Temp2=0x00000010;
+  96   2              Su16TempSet=8;  
+  97   2          }
+  98   1          else 
+  99   1          {
+ 100   2                for(Su16BufferCnt=0;Su16BufferCnt<7;Su16BufferCnt++)
+ 101   2                {
+ 102   3                 pu8Buffer[Su16BufferCnt]=Cu8Array4[Su16BufferCnt];
+ 103   3                }
+ 104   2                Su32Temp1=0x80000000;
+ 105   2              Su32Temp2=0x00000002;
+ 106   2              Su16TempSet=32; 
+ 107   2          }
+ 108   1          Su8ViewFlag=0;
+ 109   1          for(Su16TempCnt=0;Su16TempCnt<Su16TempSet;Su16TempCnt++)
+ 110   1          {
+ 111   2             Su32Temp3=u32Data/Su32Temp1%Su32Temp2;
+ 112   2               if(Su32Temp3<10)
+ 113   2               {
+ 114   3                pu8Buffer[Su16BufferCnt]=Su32Temp3+'0';
+ 115   3               }
+ 116   2               else
+C51 COMPILER V9.60.0.0   MAIN                                                              09/13/2020 23:23:24 PAGE 3   
+
+ 117   2               {
+ 118   3                pu8Buffer[Su16BufferCnt]=Su32Temp3-10+'A';
+ 119   3               }
+ 120   2               if(0==u32Data)
+ 121   2               {
+ 122   3                 Su16BufferCnt++;
+ 123   3                 break;
+ 124   3               }
+ 125   2               else if(0==Su8ViewFlag)
+ 126   2               {
+ 127   3                   if('0'!=pu8Buffer[Su16BufferCnt])
+ 128   3               {
+ 129   4                     Su8ViewFlag=1;
+ 130   4                   Su16BufferCnt++;
+ 131   4                 }
+ 132   3               }
+ 133   2               else
+ 134   2               {
+ 135   3                   Su16BufferCnt++;
+ 136   3               }
+ 137   2             Su32Temp1=Su32Temp1/Su32Temp2;
+ 138   2          }
+ 139   1          pu8Buffer[Su16BufferCnt]=0x0d;
+ 140   1          pu8Buffer[Su16BufferCnt+1]=0x0a;
+ 141   1          pu8Buffer[Su16BufferCnt+2]=0;
+ 142   1      }
+ 143          
+ 144          void SendString(unsigned char *pu8String)   
+ 145          {
+ 146   1        static unsigned int Su16SendCnt;
+ 147   1        static unsigned int Su16Delay;
+ 148   1        SCON=0x50;
+ 149   1        TMOD=0X21;
+ 150   1        TH1=TL1=256-(11059200/12/32/9600);  
+ 151   1        TR1=1;
+ 152   1        ES = 0; 
+ 153   1        TI = 0;
+ 154   1        for(Su16SendCnt=0;Su16SendCnt<43;Su16SendCnt++)
+ 155   1        {
+ 156   2           if(0==pu8String[Su16SendCnt])
+ 157   2             {
+ 158   3                 break;
+ 159   3             }
+ 160   2             else
+ 161   2             {
+ 162   3                SBUF =pu8String[Su16SendCnt]; 
+ 163   3                for(Su16Delay=0;Su16Delay<800;Su16Delay++);
+ 164   3                  TI = 0;
+ 165   3             }
+ 166   2        }
+ 167   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    935    ----
+   CONSTANT SIZE    =     45    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     70      21
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+C51 COMPILER V9.60.0.0   MAIN                                                              09/13/2020 23:23:24 PAGE 4   
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
