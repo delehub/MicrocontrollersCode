@@ -410,8 +410,8 @@ unsigned long的变量占用4个字节RAM，共32位，根据前面LED灯的例�
 ###  数制：
 
 1.   进位制：表示数时，仅用一位数码往往不够用，必须用进位计数的方法组成多位数码。多位数码每一位的构成以及从低位到高位的进位规则称为进位计数制，简称进位制。
-2.  基 数：进位制的基数，就是在该进位制中可能用到的数码个数。
-3.  位 权（位的权数）：在某一进位制的数中，每一位的大小都对应着该位上的数码乘上一个固定的数，这个固定的数就是这一位的权数。权数是一个幂。
+2.   基 数：进位制的基数，就是在该进位制中可能用到的数码个数。
+3.   位 权（位的权数）：在某一进位制的数中，每一位的大小都对应着该位上的数码乘上一个固定的数，这个固定的数就是这一位的权数。权数是一个幂。
 
 ### 二进制：（B）
 
@@ -453,7 +453,7 @@ unsigned long的变量占用4个字节RAM，共32位，根据前面LED灯的例�
 
 **常见的进制转换**
 
-![img](D:\ynotefile\delelemonwzx@163.com(1)\3286ca77878c4174a60fa543813c8ef6\fb1aa39fb8e0487ea2e86dd00baf303d.jpg)
+![img](https://i.loli.net/2020/09/19/GuZlvoYdQxJmhPi.jpg)
 
 ## **3.数制转换**
 
@@ -461,17 +461,17 @@ unsigned long的变量占用4个字节RAM，共32位，根据前面LED灯的例�
 
 （1）二进制数转换为八进制数： 将二进制数由小数点开始，整数部分向左，小数部分向右，每3位分成一组，不够3位补零，则每组二进制数便是一位八进制数。
 
-![img](D:\ynotefile\delelemonwzx@163.com(1)\d465025bc9b241138df903542be2c496\25e3356ca6eb46fe9acff15cf8e41628.jpg)
+![img](https://i.loli.net/2020/09/19/Hot9kAlFDuiP76M.jpg)
 
 八进制数转换为二进制数：将每位八进制数用3位二进制数表示。	
 
-![img](D:\ynotefile\delelemonwzx@163.com(1)\5c327c3972244541abeab080a020fdb8\ce5d0dcee5cb479fbcdc89970ec42c94.jpg)
+![img](https://i.loli.net/2020/09/19/ALBvMQwYSk8dJl7.jpg)
 
 ### **2.二进制数与十六进制数的相互转换**
 
 1.二进制数与十六进制数的相互转换，按照每4位二进制数对应于一位十六进制数进行转换。
 
-![img](D:\ynotefile\delelemonwzx@163.com(1)\4141cf1eb1dd414c80bdc38fb6e282e9\21ee52d154b.jpeg)
+![img](https://i.loli.net/2020/09/19/OapsivEVWHgkCAU.jpg)
 
 ### **3.十进制数转换为二进制数**
 
@@ -482,22 +482,22 @@ unsigned long的变量占用4个字节RAM，共32位，根据前面LED灯的例�
 1. 整数部分采用基数连除法，先得到的余数为低位，后得到的余数为高位。
 2. 小数部分采用基数连乘法，先得到的整数为高位，后得到的整数为低位。
 
-![img](D:\ynotefile\delelemonwzx@163.com(1)\ecc6f5d363ff411a93490a84774ecf26\1ee84b36b1f.jpeg)
+![img](https://i.loli.net/2020/09/19/q7RrQtvUgOcw6Jj.jpg)
 
 采用基数连除、连乘法，可将十进制数转换为任意的N进制数。
 
-![img](D:\ynotefile\delelemonwzx@163.com(1)\8a8eb6e1c0f548cd91cc38aa59e0ec4a\b091f534ebd449fdaa1150ea20f3d8c6.jpg)
+![img](https://i.loli.net/2020/09/19/ealxOqtJTBrA6hD.jpg)
 
-![img](D:\ynotefile\delelemonwzx@163.com(1)\8b98f76db2ea49a29e0567584cdd524a\092cd27aa54340478d79d33baab10d74.jpg)
+![img](https://i.loli.net/2020/09/19/5RcpvmB7n43NETd.jpg)
 
-![img](D:\ynotefile\delelemonwzx@163.com(1)\d2e6f4f0c77441df9273633da386e143\506ce68f7a6.jpeg)
+![img](https://i.loli.net/2020/09/19/Fg2xRXKNhPOuJYZ.jpg)
 
-![img](D:\ynotefile\delelemonwzx@163.com(1)\c9a1199138df48bb88c9e88b8dc134fc\1d3ebd458b8143758971e23b77d64d57.jpg)
+![img](https://i.loli.net/2020/09/19/MONsuW4pKq6DPXm.jpg)
 
-![img](D:\ynotefile\delelemonwzx@163.com(1)\9d60cd4124324f4eb3eade93caca2527\175899a965ad458fa5245f12abe4c1e4.jpg)
+![img](https://i.loli.net/2020/09/19/BGfv7jkQRD3EuFe.jpg)
 
-![img](D:\ynotefile\delelemonwzx@163.com(1)\a337b70e076943cbb5f100f6afa16d6e\7191b0edfd984c8fac340e8d57f282b9.jpg)
+![img](https://i.loli.net/2020/09/19/WslAwO6dqHpi7gK.jpg)
 
-![img](D:\ynotefile\delelemonwzx@163.com(1)\dab10a0b5f1345cc9da794edd29b4bf4\4d7e5ab3f0ed4210835b79239684bb2c.jpg)
+![img](https://i.loli.net/2020/09/19/FVyrZusMk9IeAUj.jpg)
 
-![img](D:\ynotefile\delelemonwzx@163.com(1)\291976a8cbaa484da1dc01bee0f27387\233e0e7847524676a80644f60d60adb8.jpg)
+![img](https://i.loli.net/2020/09/19/H3Jhfjy8PbgDOMZ.jpg)
